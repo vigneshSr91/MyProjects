@@ -23,6 +23,7 @@ if(__name__=='__main__'):
     np.set_printoptions(legacy='1.13')
     print( np.eye(n,m,k=0) )
 """
+"""
 import numpy
 if(__name__ == '__main__'):
 
@@ -40,3 +41,12 @@ if(__name__ == '__main__'):
         list2.append([int(i) for i in list_temp])
 
     print(numpy.dot(numpy.array(list1), numpy.array(list2)))
+"""
+
+if(__name__ == '__main__'):
+    l = [1,2,3,4,5]
+    a = range(len(l))
+    l1 = a[4::-1]
+
+    for i in l1:
+        print(l[i])
