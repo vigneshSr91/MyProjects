@@ -42,7 +42,7 @@ if(__name__ == '__main__'):
 
     print(numpy.dot(numpy.array(list1), numpy.array(list2)))
 """
-
+"""
 if(__name__ == '__main__'):
     l = [1,2,3,4,5]
     a = range(len(l))
@@ -50,3 +50,22 @@ if(__name__ == '__main__'):
 
     for i in l1:
         print(l[i])
+"""
+"""
+if(__name__ == '__main__'):
+    a, b, c = "a", "b", "c"
+
+    c, a, b = a, b, c
+
+    print(a, b, c)
+ 
+"""
+"""
+if __name__ == '__main__':
+    list = [1,2,3,4,5,6,7]
+    list2 = list[-2::-1]
+
+    print(list2)
+"""
+
+    
