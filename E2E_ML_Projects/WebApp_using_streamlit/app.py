@@ -43,4 +43,6 @@ filteredData = data[data[DATE_COLUMN].dt.hour == hourToFilter]
 st.subheader(f'Map of all pickups at {hourToFilter}:00')
 st.map(filteredData)
 
-
+# Finally run the app in Command line / Deploy in AWS/GCP/..
+# run the app from command line from the below command
+# streamlit run app.py
