@@ -78,32 +78,61 @@ Explanation 2:
 
 
 """
+from collections import deque
+class SolutionBFS:
+    def solve(self, A, B):
+
+        # 1. Adjacency List
+        adj_list = []
+        for i in range(A+1):
+            adj_list.append([])
+        edges = len(B)
+        for i in range(edges):
+            u = B[i][0]
+            v = B[i][1]
+            adj_list[u].append(v)
+        # 2. Initialize visited array
+        visited=[False] * (A+1)
+        # 3. Start Breadth First Search
+        q = deque()                         # Use queue DS for FIFO
+        q.append(1)                         # Start from source node
+
+        while len(q) > 0:
+            for i in range(len(q)):
+                currentNode = q.popleft()
+                nodes = adj_list[currentNode]
+                for j in range(len(nodes)):
+                    if visited[nodes[j]] == False:
+                        q.append(nodes[j])
+                        visited[nodes[j]] = True
+        
+        if visited[A]:
+            return 1
+        return 0
+
 
 class Solution:
     # @param A : integer
     # @param B : list of list of integers
     # @return an integer
     def solve(self, A, B):
-        # First create the adjacency list
-        graph = []
-        for i in range((A+1)):
+        # 1. Adjacency List
+        graph = []                              # Intialize
+        for i in range((A+1)):                  # Create the adjacency list for each Node
             graph.append([])
 
-        for i in range(len(B)):
-            u = B[i][0]
-            graph[u].append(B[i][1])
-            """
-            v = B[i][1]
-            graph[v].append(B[i][0])
-            """
+        for i in range(len(B)):                 # For each given Edge,
+            u = B[i][0]                         # If unidirected u<->v
+            graph[u].append(B[i][1])            # If directed u->v
 
+        # 2. Initialize the visited array
         visited = []
         for i in range(A + 1):
             visited.append(False)
 
-        self.depthFirstSearch(graph, visited, 1)
+        self.depthFirstSearch(graph, visited, 1)    # Start DFS from Node 1
 
-        if visited[A] == False:
+        if visited[A] == False:                     # Finally, if the destination node was Visited, return True
             return 0
         else:
             return 1
@@ -115,7 +144,6 @@ class Solution:
             v = graph[node][i]
             if visited[v] == False:
                 self.depthFirstSearch(graph, visited, v)
-
 
 
 
